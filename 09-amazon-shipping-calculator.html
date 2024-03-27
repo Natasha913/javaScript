@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>DOM Projects</title>  
+      <style>
+        .calculate-button{
+          background-color: green;
+        color: white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 50px;
+        cursor: pointer;
+        }
+        .cost-input{
+        font-size:  15px;
+        padding: 10px;
+       
+       }
+      </style>
+    </head>
+
+    <body>
+
+      <p>YouTube Subscribe Button</p>
+
+      <button onclick="
+        Subscribe();
+      " class = "js-subscribe-button">
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+    handleCostKeydown(event);
+    ">
+    
+
+    <button onclick="
+       calculateTotal();
+    "class="calculate-button">Calculate</button>
+     <p class="js-total-cost"></p>
+      
+        <script>
+          function handleCostKeydown(event){
+            
+            if(event.key === 'Enter'){
+            calculateTotal();
+          }
+
+          }
+          
+          function calculateTotal(){
+
+           const inputeElement = document.querySelector('.js-cost-input');
+          let cost = Number(inputeElement.value);
+
+           if (cost < 40){
+            cost = cost + 10;
+
+           } 
+
+           document.querySelector('.js-total-cost')
+            .innerHTML = `$${cost}`;
+          }
+
+          function Subscribe(){
+            const buttonElement = document.querySelector('.js-subscribe-button');
+
+            if (buttonElement.innerText === 'Subscribe'){
+              
+            } else {
+              buttonElement.innerHTML = 'Subscribe';
+            }
+          }
+
+        </script> 
+
+        
+    </body>
+</html>
+
+
+
+
